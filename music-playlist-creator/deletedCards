@@ -1,0 +1,253 @@
+<article id="card">
+                <img id="coverImage" src="assets/img/playlist.png" width="300px" height="300px";>
+                
+                <div id="title">
+                    <h3>Playlist Title</h3>
+                </div>
+                <div id="creatorName">
+                    <p>Creator Name</p>
+                </div>
+                <div id="likeCount">
+                    
+                </div>
+            </article>
+            <article id="card">
+                <img id="coverImage" src="assets/img/playlist.png" width="300px" height="300px";>
+                
+                <div id="title">
+                    <h3>Playlist Title</h3>
+                </div>
+                <div id="creatorName">
+                    <p>Creator Name</p>
+                </div>
+                <div id="likeCount">
+                    
+                </div>
+            </article>
+            <article id="card">
+                <img id="coverImage" src="assets/img/playlist.png" width="300px" height="300px";>
+                
+                <div id="title">
+                    <h3>Playlist Title</h3>
+                </div>
+                <div id="creatorName">
+                    <p>Creator Name</p>
+                </div>
+                <div id="likeCount">
+                    
+                </div>
+            </article>
+            <article id="card">
+                <img id="coverImage" src="assets/img/playlist.png" width="300px" height="300px";>
+                
+                <div id="title">
+                    <h3>Playlist Title</h3>
+                </div>
+                <div id="creatorName">
+                    <p>Creator Name</p>
+                </div>
+                <div id="likeCount">
+                    
+                </div>
+            </article>
+            <article id="card">
+                <img id="coverImage" src="assets/img/playlist.png" width="300px" height="300px";>
+                
+                <div id="title">
+                    <h3>Playlist Title</h3>
+                </div>
+                <div id="creatorName">
+                    <p>Creator Name</p>
+                </div>
+                <div id="likeCount">
+                    
+                </div>
+            </article>
+            <article id="card">
+                <img id="coverImage" src="assets/img/playlist.png" width="300px" height="300px";>
+                
+                <div id="title">
+                    <h3>Playlist Title</h3>
+                </div>
+                <div id="creatorName">
+                    <p>Creator Name</p>
+                </div>
+                <div id="likeCount">
+                    
+                </div>
+            </article>
+            <article id="card">
+                <img id="coverImage" src="assets/img/playlist.png" width="300px" height="300px";>
+                
+                <div id="title">
+                    <h3>Playlist Title</h3>
+                </div>
+                <div id="creatorName">
+                    <p>Creator Name</p>
+                </div>
+                <div id="likeCount">
+                    
+                </div>
+            </article>
+            
+
+
+
+//dynamically created playlist cads
+document.addEventListener("DOMContentLoaded",()=>{
+function playlistCreator()
+{
+    const playlistsContainer = document.querySelector('.playlist-cards');
+    data.playlists.forEach(playlist =>{
+
+    // create card
+    const playlistCard = document.createElement('div');
+    playlistCard.className = 'card';
+    //card image
+    let coverImage = document.createElement('img');
+    coverImage.className = 'playlist_art'
+    coverImage.src = playlist.playlist_art;
+    
+    //playlist name
+    let playlistName = document.createElement('h3');
+    playlistName.className= 'playlist-title';
+    playlistName.textContent = playlist.playlist_name;
+
+    // 
+    let playlistCreator = document.createElement('p');
+    playlistCreator.className = 'creator-name';
+    playlistCreator.textContent = playlist.playlist_creator;
+
+    // like count and icon
+    let heartIcon = document.createElement('span');
+    heartIcon.className = 'heart-icon';
+    heartIcon.innerHTML= '&#x2665'
+    likeCount = document.createElement('span');
+    likeCount.className = 'like-count';
+    likeCount.textContent = playlist.likeCount;
+    
+    
+    
+
+    //append the elements
+    playlistCard.appendChild(coverImage);
+    playlistCard.appendChild(playlistName);
+    playlistCard.appendChild(playlistCreator);
+    playlistCard.appendChild(heartIcon);
+    playlistCard.appendChild(likeCount);
+
+    
+    playlistsContainer.appendChild(playlistCard);
+
+    })}
+
+    playlistCreator();
+    
+    
+
+title.addEventListener("click",(event)=>{
+    //if the user does not click on the heart
+    if(!event.target.classList.contains(".heart-icon"))
+        {openModal(playlist);}
+
+    //enable the user to like the playlst 
+    heartIcon.addEventListener("click",(event) => {
+        event.stopPropagation();
+        const likeCountElement = heartIcon.nextElementSibling;
+        let likeCount = parseInt(likeCountElement.textContent);
+        likeCount++;
+        heartIcon.classList.add("liked");
+        likeCountElement.textContent = likeCount; 
+    });
+
+
+return playlistCard;
+
+
+});
+
+function openModal(playlist){
+    const modal = document.getElementById("myModal");
+    document.getElementById("modal-cover").src = playlist.playlist_art;
+    document.getElementById("modal-name").textContent = playlist.playlist_name
+    document.getElementById("modal-creator").textContent= `Creator: ${playlist.playlist_creator}`;
+    const songList = document.getElementById("modal-songs");
+    songList.innerHTML=""; //clears past loaded songs
+    playlist.songs.forEach(song) =>{
+        const songItem = document.createElement("li");
+        songItem.textContent = `${song.title} - ${song.artist} - ${song.duration}`;
+        songList.appendChild(songItem);
+
+
+    }
+}
+modal.style.display = "block"
+
+
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const playlists = data.playlists;
+    const featuredPlaylist = playlists[Math.floor(Math.random() * playlists.length)];
+    const playlistName = featuredPlaylist.playlist_name;
+    const playlistCreator = featuredPlaylist.playlist_creator;
+    const songList = featuredPlaylist.songs;
+
+    function createFeaturedPlaylist() {
+        const playlistCard = document.createElement('div');
+        playlistCard.className = 'card';
+
+        const coverImage = document.createElement('img');
+        coverImage.className = 'playlist_art';
+        coverImage.src = featuredPlaylist.playlist_art;
+        playlistCard.appendChild(coverImage);
+
+        const nameElement = document.createElement('h3');
+        nameElement.className = 'playlist-title';
+        nameElement.textContent = playlistName;
+        playlistCard.appendChild(nameElement);
+
+        const creatorElement = document.createElement('p');
+        creatorElement.className = 'creator-name';
+        creatorElement.textContent = `Created by: ${playlistCreator}`;
+        playlistCard.appendChild(creatorElement);
+
+        return playlistCard;
+    }
+
+    const featuredPlaylistContainer = document.querySelector('.playlist-card-feature-page');
+    const featuredPlaylistCard = createFeaturedPlaylist();
+    featuredPlaylistContainer.appendChild(featuredPlaylistCard);
+
+    const songListContainer = document.querySelector('.song-list');
+    songList.forEach(song => {
+        const songContainer = document.createElement('div');
+        songContainer.textContent = `${song.title} - ${song.artist} - ${song.duration}`;
+        songListContainer.appendChild(songContainer);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

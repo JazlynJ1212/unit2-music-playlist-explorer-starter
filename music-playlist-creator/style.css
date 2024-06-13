@@ -1,6 +1,159 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'arial ', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color:#e3dad2ba;
+}
+
+header, footer{
+    background-color: #E3CFDC;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 15px 0px 15px 15px;
+    text-align: center;
+    text-size-adjust: large;
+}
+
+
+
+main{
+    margin: 50px 75px 75px 75px;
+    display:flex;
+
+}
+
+.playlist-cards{
+    display:flex;
+    flex-wrap: wrap;
+    flex:1px;
+    /* flex-direction: row; */
+    justify-content: center;
+    gap: 30px;
+
+}
+
+
+
+.card{
+    border: 3.5mm ridge #E3D1DC ;
+    background-color: white;
+    /* border-radius: 25px; */
+    flex-direction: row;
+    align-items: center;
+    width:310px;
+    height:450px;
+   
+}
+
+
+
+
+
+
+#playlistCardId{
+  width:420px;
+  height:560px;
+  
+
+
+}
+
+.heart-icon{
+  cursor: pointer;
+  font-size:larger;
+}
+
+
+
+img.playlist_art{
+    width:100%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+  /* //navigation bar  */
+
+#navigation{
+  font-family:'Georgia';
+  font-size: larger;
+  background-color: #e3dad2;
+  /* padding: 50px;
+  margin:0px; */
+  display:flex;
+  display:row;
+  justify-content:space-around;
+  /* padding: 20px; */
+
+}
+
+
+
+#navigation a{
+  color: black;
+  padding: 20px;
+  font-size: larger;
+  text-decoration: none;
+  
+}
+/* 
+FEATURE PAGE  */
+
+.featured-playlist{
+  flex:1;
+  /* flex-direction: column; */
+
+}
+
+.song-list{
+  /* flex:1; */
+  justify-content: center;
+  align-items: center; 
+  margin:auto;
+  padding: 25px;
+  /* text-align: center;  */
+  
+
+}
+
+#shuffle-button{
+  padding: 10px;
+  background-color: #aaa;
+  cursor:pointer;
 }
